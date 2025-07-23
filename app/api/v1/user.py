@@ -1,15 +1,15 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, Query, BackgroundTasks
 from sqlalchemy.orm import Session
-from core.database import get_db
+from app.core.deps import get_db
 from sqlalchemy import text, func
-from serialize.user import UserFilters
-from response.user import UserResponse
-from models.user import User
-from models.event import Event, EventAttendance, EventHost
+from app.serialize.user import UserFilters
+from app.response.user import UserResponse
+from app.models.user import User
+from app.models.event import Event, EventAttendance, EventHost
 
 
-router = APIRouter(prefix="users", tags=["User"])
+router = APIRouter(prefix="/users", tags=["User"])
 
 
 @router.get("/", response_model=List[UserResponse])

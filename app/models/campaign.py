@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB
-from core.database import Base
+from app.core.database import Base
 
 class EmailCampaign(Base):
     __tablename__ = "email_campaigns"

@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from core.deps import get_db
+from app.core.deps import get_db
 from sqlalchemy import text
-from api.v1.user import router as user_router
+from app.api.v1.user import router as user_router
 
 
 app = FastAPI()
