@@ -3,13 +3,21 @@ from fastapi import APIRouter, Depends, HTTPException, Query, BackgroundTasks
 from sqlalchemy.orm import Session
 from app.core.deps import get_db
 from sqlalchemy import text, func
-from app.serialize.user import UserFilters
+from app.schemas.user import UserFilters, UserCreate
 from app.response.user import UserResponse
 from app.models.user import User
 from app.models.event import Event, EventAttendance, EventHost
 
 
 router = APIRouter(prefix="/users", tags=["User"])
+
+
+@router.post("/", response_model=UserResponse)
+async def create_user(data=UserCreate, db=Depends(get_db)):
+    user = User(**data)
+    db.add(user)
+    db.commit()
+    return user
 
 
 @router.get("/", response_model=List[UserResponse])
