@@ -31,6 +31,17 @@ A high-performance backend system for event management platforms, featuring user
 - **Testing**: Pytest, SQLite (in-memory)
 - **Deployment**: Docker-ready
 
+## Variables
+* Fill database variables before run the docker
+```
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+POSTGRES_HOST=
+POSTGRES_PORT=
+```
+
+
 ## Installation
 
 ```
@@ -61,7 +72,7 @@ Swagger UI: http://localhost:8000/docs
 
 ReDoc: http://localhost:8000/redoc
 
-Example Requests
+## Example Requests
 
 ```
 1. curl -X GET "http://localhost:8000/users?company=Google&state=CA&hosted_events_min=3&page=1&size=5"
